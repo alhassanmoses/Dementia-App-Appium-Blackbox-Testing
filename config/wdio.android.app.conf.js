@@ -20,8 +20,8 @@ config.capabilities = [
     // http://appium.io/docs/en/writing-running-appium/caps/
     // This is `appium:` for all Appium Capabilities which can be found here
     "appium:deviceName": "emulator-5554",
-    "appium:platformVersion": "9.0",
-    "appium:orientation": "PORTRAIT",
+    "appium:platformVersion": "8.1",
+    // "appium:orientation": "LANDSCAPE",
     // `automationName` will be mandatory, see
     // https://github.com/appium/appium/releases/tag/v1.13.0
     "appium:automationName": "UiAutomator2",
@@ -29,7 +29,7 @@ config.capabilities = [
     // "appium:app": join(process.cwd(), "./apps/Android-NativeDemoApp-0.2.1.apk"),
     
     //    uncomment next line to test seniors app
-    //    "appium:appPackage": "com.media4care.dementia",
+      //  "appium:appPackage": "com.media4care.dementia",
     "appium:appPackage": "com.media4care.family",
     "appium:appActivity": "com.media4care.common.MainActivity",
     "appium:fullReset": false,
