@@ -40,18 +40,18 @@ describe("Network Connectivity Test", () => {
             console.log('******************** Connection Restored: ' + value1 + "********************");
 
         }
-        if(value === 1){
-            console.log('Airplane mode');
-        }
-        if(value === 2){
-            console.log('WiFi enabled');
-        }
-        if(value === 4){
-            console.log('Mobile Data Enabled');
-        }
-        if(value === 6){
-            console.log('Mobile Data + WiFi');
-        }
+        // if(value === 1){
+        //     console.log('Airplane mode');
+        // }
+        // if(value === 2){
+        //     console.log('WiFi enabled');
+        // }
+        // if(value === 4){
+        //     console.log('Mobile Data Enabled');
+        // }
+        // if(value === 6){
+        //     console.log('Mobile Data + WiFi');
+        // }
     });
 
     //SubTest5
