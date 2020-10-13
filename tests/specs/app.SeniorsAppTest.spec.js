@@ -1,3 +1,4 @@
+//Test1
 describe("Dementia App Video Call Test", () => {
   // //SubTest1
   // it("should click familyGroup button", () => {
@@ -103,18 +104,20 @@ describe("Dementia App Video Call Test", () => {
     const callEndText = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.app.Dialog/android.view.View/android.view.View[1]");
     callEndText.waitForDisplayed({timeout:30000});
     
-    expect(callEndText).toHaveAttributeContaining('text', 'You aborted the call with')
+    expect(callEndText).toHaveAttributeContaining('text', 'You aborted the call with');
     const backbutton = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.app.Dialog/android.view.View/android.view.View[2]/android.widget.Button");
     backbutton.click();
   });
 
+  //subTest6
   it("Select the home button",()=>{
     const homeBtn = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[4]/android.view.View[2]/android.view.View[1]/android.view.View[1]/android.widget.Button");
    return homeBtn.click();
   });
 });
 
-describe("Sending an image",()=>{
+//Test2
+describe("Dementia App Sending an image",()=>{
   //subTest1
   it("Go to chats screen",()=>{
     const chatsBtn = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View[2]/android.view.View[3]/android.widget.Image");
@@ -122,7 +125,7 @@ describe("Sending an image",()=>{
   return chatsBtn.click();
   
   });
-
+    //subTest2
   it("Select familygroup tab",()=>{
     const familyGroupBtn = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.view.View[1]");
     familyGroupBtn.waitForDisplayed({timeout:30000})
@@ -130,35 +133,49 @@ describe("Sending an image",()=>{
   
   });
 
+    //subTest3
   it("Select image picker button",()=>{
     const imageBtn = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[3]/android.view.View[2]/android.widget.Button");
     imageBtn.waitForDisplayed({timeout:30000})
   return imageBtn.click();
   
   });
-
+    //subTest4
   it("Take Image",()=>{
     const shutterBtn = $("~Shutter");
     return shutterBtn.click();
-  })
+  });
 
+  //subTest5
   it("Accept image",()=>{
     const acceptBtn = $("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout");
+    acceptBtn.waitForDisplayed({timeout:20000});
     acceptBtn.click();    
-    driver.pause(30000);
-  })
+    driver.pause(10000);
+  });
 
-   //subTest
-   it("Take screenshot the go out of chat screen", () => {
+  //subTest6
+  it("Assert posted Image timestamp",()=>{
+    var latestTimeStamp = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View[last ()]/android.view.View[3]");
+    var latestTimeStampText = latestTimeStamp.getText();
+    
+    expect(latestTimeStamp).toBePresent();
+    console.log(`The sent time is ${latestTimeStampText}`);
+  });
+
+   //subTest7
+   it("Take a screenshot then go out of chat screen", () => {
     driver.saveScreenshot('./screenshots/screenshot.png');
     const backbutton = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[4]/android.view.View[2]/android.view.View[1]/android.view.View[2]/android.widget.Button");
     backbutton.click();
   });
 
-  //subTest
-  it("Go home",()=>{
+  //subTest8
+  it("Go to home screen",()=>{
     const homeBtn = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[4]/android.view.View[2]/android.view.View[1]/android.view.View[1]/android.widget.Button");
-   return homeBtn.click();
+    homeBtn.click();
+
+    driver.pause(10000);
   });
     
 })
