@@ -1,4 +1,5 @@
 describe("Sending a private message ", () => {
+
   //SubTest1
   it("should click message button", () => {
     const messageGroupBtn = $(
@@ -9,6 +10,9 @@ describe("Sending a private message ", () => {
     });
     return messageGroupBtn.click();
   });
+
+
+
 
 //SubTest2
 it("should click family member button", () => {
@@ -21,6 +25,9 @@ it("should click family member button", () => {
   return privateBtn.click();
 });
 
+
+
+
   //SubTest3
   it("should select textfield and input message", () => {
     const messageTextfield = $(
@@ -32,6 +39,8 @@ it("should click family member button", () => {
   });
 
 
+
+
    //SubTest4
   it("should click send button", () => {
     const sendBtn = $(
@@ -39,6 +48,8 @@ it("should click family member button", () => {
     );
     return sendBtn.click();
     });
+
+
 
 
    //SubTest5
@@ -65,24 +76,32 @@ const time = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayou
     });  
   });
 
+
+
+
   // SubTest8
-  it ("expect function"),function()
+  it ("expect function",() =>
   {
-  const msgbox=$("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.view.View/android.view.View[10]/android.view.View[25]/android.view.View[1]");
-  let msboxText = msgbox.getText();
-    expect(msboxText).toHaveAttributeContaining('text','last messages for testing assert');
-    return expect;
-  }
+  const xpath = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.view.View/android.view.View[10]/android.view.View[last()]/android.view.View[2]")
+  expect(xpath).toExist()
+  return expect;
+  // const msgbox=$("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.view.View/android.view.View[10]/android.view.View[25]/android.view.View[1]");
+  // let msboxText = msgbox.getText();
+  //   expect(msboxText).toHaveAttributeContaining('Text','last messages for testing assert');
+  //console.log ("value of expect " + expect)  
+   
+  });
+
+
+
 
 
    // SubTest7
-  it('should save a screenshot of the browser view', function () {
+  it("should save a screenshot of the browser view", function () {
 
     driver.saveScreenshot('./photos/screenshot.png');
      });
 
-
-     
     
 
 
@@ -97,6 +116,8 @@ const time = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayou
 //   after(() => {
 //     browser.pause(50000);
 //   });
+
+
 });
 
 //TechnicalMisthios

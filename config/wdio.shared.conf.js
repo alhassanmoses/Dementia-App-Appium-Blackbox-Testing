@@ -11,6 +11,7 @@ exports.config = {
     defaultTimeoutInterval: 90000,
     helpers: [require.resolve("@babel/register")],
   },
+  
   beforeSession () { // before hook works as well
     require('expect-webdriverio').setOptions({ wait: 5000 })
 },

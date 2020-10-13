@@ -9,6 +9,8 @@ describe("Sending an Image", () => {
       });
       return messageGroupBtn.click();
     });
+
+
   
   //SubTest2
   it("should click family member button", () => {
@@ -20,6 +22,9 @@ describe("Sending an Image", () => {
     });
     return privateBtn.click();
   });
+
+
+
 
  //SubTest3
    it("should click send image button",()=>{
@@ -34,6 +39,8 @@ describe("Sending an Image", () => {
    });
 
 
+
+
   //SubTest4
    it("should select image",()=>{
      const ImageBtn = $(
@@ -43,6 +50,8 @@ describe("Sending an Image", () => {
      return ImageBtn.click();
 
        });
+
+
 
 
        //SubTest5
@@ -60,6 +69,8 @@ describe("Sending an Image", () => {
           });
 
 
+
+
 //SubTest6
 it("turn on internet if off",function (){
 
@@ -74,19 +85,31 @@ it("turn on internet if off",function (){
 
 });
 
+
  //SubTest7
-
- it ("should log timestamp" ,() =>
+ it ("should assert timestamp for image",() =>
  {
-//  const time = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.view.View/android.view.View[11]/android.view.View[10]/android.view.View[3]"
+const xpath = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.view.View/android.view.View[12]/android.view.View[last()]/android.view.View[3]")
+     expect(xpath).toExist()
+     return expect;
+
+
+//  const time = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View[last ()]/android.view.View[3]"
 //  );
+//  let timing = time.getValue();
+//  console.log (timing)
+ 
+// let time = driver.getDeviceTime();
+// console.log(time)
 
-let time = driver.getDeviceTime();
-console.log(time)
-
-// let logs = driver.getLogs('logcat')
-// console.log(logs)
+// // let logs = driver.getLogs('logcat')
+// // console.log(logs)
 
 });
+
+it("should save a screenshot of the browser view", function () {
+
+  driver.saveScreenshot('./photos/screenshotImage.png');
+   });
 
 });
