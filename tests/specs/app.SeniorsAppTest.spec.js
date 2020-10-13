@@ -100,14 +100,18 @@ describe("Dementia App Video Call Test", () => {
 
   //subTest5
   it("should click the back button after call is done", () => {
-    const backbutton = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.app.Dialog/android.view.View/android.view.View[2]/android.widget.Button")
-    backbutton.click()
-  })
+    const callEndText = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.app.Dialog/android.view.View/android.view.View[1]");
+    callEndText.waitForDisplayed({timeout:30000});
+    
+    expect(callEndText).toHaveAttributeContaining('text', 'You aborted the call with')
+    const backbutton = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.app.Dialog/android.view.View/android.view.View[2]/android.widget.Button");
+    backbutton.click();
+  });
 
   it("Select the home button",()=>{
     const homeBtn = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[4]/android.view.View[2]/android.view.View[1]/android.view.View[1]/android.widget.Button");
    return homeBtn.click();
-  })
+  });
 });
 
 describe("Sending an image",()=>{
@@ -140,13 +144,14 @@ describe("Sending an image",()=>{
 
   it("Accept image",()=>{
     const acceptBtn = $("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout");
-    acceptBtn.click();
+    acceptBtn.click();    
     driver.pause(30000);
   })
 
    //subTest
-   it("Go out of chat screen", () => {
-    const backbutton = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[4]/android.view.View[2]/android.view.View[1]/android.view.View[2]/android.widget.Button")
+   it("Take screenshot the go out of chat screen", () => {
+    driver.saveScreenshot('./screenshots/screenshot.png');
+    const backbutton = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[4]/android.view.View[2]/android.view.View[1]/android.view.View[2]/android.widget.Button");
     backbutton.click();
   });
 
@@ -154,11 +159,6 @@ describe("Sending an image",()=>{
   it("Go home",()=>{
     const homeBtn = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[4]/android.view.View[2]/android.view.View[1]/android.view.View[1]/android.widget.Button");
    return homeBtn.click();
-  });
-
-  it("Take a screenshot",()=>{
-    driver.saveScreenshot('./screenshots/screenshot.png');
-  driver.pause(60000);
   });
     
 })
