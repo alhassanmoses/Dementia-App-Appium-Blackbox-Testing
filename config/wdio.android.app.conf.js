@@ -30,7 +30,7 @@ config.capabilities = [
     
     //    uncomment next line to test seniors app
     //    "appium:appPackage": "com.media4care.dementia",
-    "appium:appPackage": "com.media4care.dementia",
+    "appium:appPackage": "com.media4care.family",
     "appium:appActivity": "com.media4care.common.MainActivity",
     "appium:fullReset": false,
     // Read the reset strategies very well, they differ per platform, see
