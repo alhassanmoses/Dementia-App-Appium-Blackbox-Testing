@@ -5,7 +5,7 @@ describe("Sending message from senior to family group : ", () => {
       "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View[6]/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.view.View[1]"
     );
     seniorNameBtn.waitForDisplayed({
-      timeout: 30000,
+      timeout: 50000,
     });
     return seniorNameBtn.click();
   });
@@ -15,7 +15,7 @@ describe("Sending message from senior to family group : ", () => {
     const messageTextfield = $(
       "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View[2]/android.view.View[2]/android.view.View[1]/android.widget.EditText"
     );
-    messageTextfield.waitForDisplayed({ timeout: 30000 });
+    messageTextfield.waitForDisplayed({ timeout: 50000 });
     messageTextfield.click();
     return messageTextfield.setValue("Test sending message from companion application to senior member directly");
   });
