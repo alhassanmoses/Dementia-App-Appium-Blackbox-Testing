@@ -31,7 +31,7 @@ it("should click familygroup button", () => {
     return messageTextfield.setValue("this is a new test message from the seniors app");
   });
 
-  // //SubTest4
+  //SubTest4
   it("should click send button", () => {
     const sendBtn = $(
       "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[3]/android.view.View[4]/android.widget.Button"
@@ -39,18 +39,39 @@ it("should click familygroup button", () => {
     return sendBtn.click();
     });
 
+
   //SubTest5
+  it("turn on internet if off",function (){
 
+    let value = driver.getNetworkConnection(); // Get connection status
+     if(value === 0){ 
+     console.log('******************** No connection: ' + value + "********************");
+     driver.setNetworkConnection(6); // Turn the Wifi and data Connection back on
+     }
+
+     let value1 = driver.getNetworkConnection()
+     console.log("connection status" +" "+value1);
+
+});
+
+
+  // SubTest6
   it("should wait for internet to resend message",() => {
-
-    const time = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View/android.view.View[2]"
+const time = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View/android.view.View[2]"
     );
-
     time.waitForDisplayed({
       timeout: 400000,
-    });
-    
+    });  
   });
+
+  
+   // SubTest7
+  it('should save a screenshot of the browser view', function () {
+
+    driver.saveScreenshot('./photos/screenshot.png');
+     });
+    
+
 
 
   // //SubTest5

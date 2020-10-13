@@ -11,7 +11,7 @@ describe("Sending a private message ", () => {
   });
 
 //SubTest2
-it("should click familygroup button", () => {
+it("should click family member button", () => {
   const privateBtn = $(
     "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View[5]/android.view.View[1]/android.view.View[2]/android.view.View[1]"
   );
@@ -28,10 +28,11 @@ it("should click familygroup button", () => {
     );
     messageTextfield.waitForDisplayed({ timeout: 20000 });
     messageTextfield.click();
-    return messageTextfield.setValue("a new test message for private chat");
+    return messageTextfield.setValue("last messages for testing assert");
   });
 
-  // //SubTest4
+
+   //SubTest4
   it("should click send button", () => {
     const sendBtn = $(
       "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[3]/android.view.View[4]/android.widget.Button"
@@ -39,17 +40,50 @@ it("should click familygroup button", () => {
     return sendBtn.click();
     });
 
-  //SubTest5
 
+   //SubTest5
+   it("turn on internet if off",function (){
+
+    let value = driver.getNetworkConnection(); // Get connection status
+     if(value === 0){ 
+     console.log('******************** No connection: ' + value + "********************");
+     driver.setNetworkConnection(6); // Turn the Wifi and data Connection back on
+     }
+
+     let value1 = driver.getNetworkConnection()
+     console.log("connection status" +" "+value1);
+
+});
+
+
+  // SubTest6
   it("should wait for internet to resend message",() => {
-
-    const time = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.view.View/android.view.View[8]/android.view.View/android.view.View[2]"
+const time = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View/android.view.View[2]"
     );
     time.waitForDisplayed({
       timeout: 400000,
-    });
-    
+    });  
   });
+
+  // SubTest8
+  it ("expect function"),function()
+  {
+  const msgbox=$("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.view.View/android.view.View[10]/android.view.View[25]/android.view.View[1]");
+  let msboxText = msgbox.getText();
+    expect(msboxText).toHaveAttributeContaining('text','last messages for testing assert');
+    return expect;
+  }
+
+
+   // SubTest7
+  it('should save a screenshot of the browser view', function () {
+
+    driver.saveScreenshot('./photos/screenshot.png');
+     });
+
+
+     
+    
 
 
   // //SubTest5

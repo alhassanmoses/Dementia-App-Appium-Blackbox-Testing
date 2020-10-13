@@ -30,7 +30,10 @@
     "url": "https://github.com/webdriverio/appium-boilerplate/issues"
   },
   "homepage": "https://github.com/webdriverio/appium-boilerplate#readme",
-  "dependencies": {},
+  "dependencies": {
+    "expect": "^26.5.3",
+    "expect-webdriverio": "^1.4.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",
