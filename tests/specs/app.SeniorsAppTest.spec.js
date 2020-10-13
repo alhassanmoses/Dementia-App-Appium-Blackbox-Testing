@@ -103,7 +103,65 @@ describe("Dementia App Video Call Test", () => {
     const backbutton = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.app.Dialog/android.view.View/android.view.View[2]/android.widget.Button")
     backbutton.click()
   })
+
+  it("Select the home button",()=>{
+    const homeBtn = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[4]/android.view.View[2]/android.view.View[1]/android.view.View[1]/android.widget.Button");
+   return homeBtn.click();
+  })
 });
+
+describe("Sending an image",()=>{
+  //subTest1
+  it("Go to chats screen",()=>{
+    const chatsBtn = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View[2]/android.view.View[3]/android.widget.Image");
+  chatsBtn.waitForDisplayed({timeout:30000})
+  return chatsBtn.click();
+  
+  });
+
+  it("Select familygroup tab",()=>{
+    const familyGroupBtn = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.view.View[1]");
+    familyGroupBtn.waitForDisplayed({timeout:30000})
+  return familyGroupBtn.click();
+  
+  });
+
+  it("Select image picker button",()=>{
+    const imageBtn = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[3]/android.view.View[2]/android.widget.Button");
+    imageBtn.waitForDisplayed({timeout:30000})
+  return imageBtn.click();
+  
+  });
+
+  it("Take Image",()=>{
+    const shutterBtn = $("~Shutter");
+    return shutterBtn.click();
+  })
+
+  it("Accept image",()=>{
+    const acceptBtn = $("/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout");
+    acceptBtn.click();
+    driver.pause(30000);
+  })
+
+   //subTest
+   it("Go out of chat screen", () => {
+    const backbutton = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[4]/android.view.View[2]/android.view.View[1]/android.view.View[2]/android.widget.Button")
+    backbutton.click();
+  });
+
+  //subTest
+  it("Go home",()=>{
+    const homeBtn = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[4]/android.view.View[2]/android.view.View[1]/android.view.View[1]/android.widget.Button");
+   return homeBtn.click();
+  });
+
+  it("Take a screenshot",()=>{
+    driver.saveScreenshot('./screenshots/screenshot.png');
+  driver.pause(60000);
+  });
+    
+})
 
 //Moses Wuniche Alhassan
 //TechnicalMisthios
