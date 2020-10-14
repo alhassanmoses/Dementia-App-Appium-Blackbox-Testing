@@ -12,7 +12,7 @@ const deafult_config_string = "./tests/specs/**/app*.spec.js";
 
 //scrip to know which test to run /--------------"default" , "seniors" or "family"--------------/
 //change the value of "app_tested" to test respective apps
-let app_tested = "default";
+let app_tested = "family";
 var appPackageText = "com.media4care.dementia";
 switch(app_tested){
   //Default
@@ -62,7 +62,7 @@ config.capabilities = [
     // The path to the app
     // "appium:app": join(process.cwd(), "./apps/Android-NativeDemoApp-0.2.1.apk"),
     
-       "appium:appPackage": appPackageText,
+    "appium:appPackage": appPackageText,
     "appium:appActivity": "com.media4care.common.MainActivity",
     "appium:fullReset": false,
     // Read the reset strategies very well, they differ per platform, see
