@@ -4,13 +4,14 @@ describe("Sending message from Companion app to senior member directly : ", () =
     const seniorNameBtn = $(
       "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View[6]/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.view.View[1]"
     );
-    seniorNameBtn.waitForDisplayed({
-      timeout: 50000,
-    });
+    // seniorNameBtn.waitForDisplayed({
+    //   timeout: 50000,
+    // });
+
     return seniorNameBtn.click();
   });
 
-  //SubTest2
+  //SubTest2s
   it("should select textfield and input message", () => {
     const messageTextfield = $(
       "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View[2]/android.view.View[2]/android.view.View[1]/android.widget.EditText"
@@ -32,7 +33,8 @@ describe("Sending message from Companion app to senior member directly : ", () =
 
   it("should wait for internet to resend message",() => {
 
-    const time = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[10]/android.view.View/android.view.View[2]"
+    const time = $(
+      "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[12]/android.view.View[8]/android.view.View[2]"
     );
 
     time.waitForDisplayed({
@@ -41,20 +43,21 @@ describe("Sending message from Companion app to senior member directly : ", () =
     
   });
 
-  it("should take screenshot", () => {
-    driver.saveScreenshot("./photos/screenshot.png")
+  it("should get the time stamp", () => {
+    var timeStamp = $(
+      "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[12]/android.view.View[last()]/android.view.View[2]"
+      );
+
+    
+    expect(timeStamp).toExist();
+    return expect;
+
   })
 
 
-  // //SubTest5
-  // it("should click back button", () => {
-  //   const backBtn = $(
-  //     "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.view.View/android.widget.Button"
-  //   );
-  //   return backBtn.click();
-  // });
+  it("should take screenshot", () => {
+    driver.saveScreenshot("./photos/screenshot4text.png")
+  })
 
-//   after(() => {
-//     browser.pause(50000);
-//   });
+
 });

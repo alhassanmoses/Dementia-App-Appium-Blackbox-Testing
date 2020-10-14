@@ -61,26 +61,31 @@ describe("Sending photo from companion app to senior app : ", () => {
       });
     
   
-    // //SubTest7
+     //SubTest7
     it("should click send button", () => {
       const sendBtn = $(
         "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.app.Dialog/android.view.View/android.view.View[3]/android.view.View[2]/android.view.View[2]/android.view.View[2]/android.view.View/android.widget.Button"
       );
-      return sendBtn.click();
+      sendBtn.waitForDisplayed({
+        timeout: 50000,
       });
+       sendBtn.click();
+       driver.pause(50000)
+      });
+
+
+      //Subtest 8
+    it("should get the time stamp", () => {
+      var timeStamp = $(
+        "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[10]/android.view.View[last()]/android.view.View[3]"
+        );
+    
+      expect(timeStamp).toExist();
+      return expect;
+
+    })
   
-    // //SubTest8
-  
-    // it("should wait for internet to resend message",() => {
-  
-    //   const time = $("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[8]/android.view.View[12]/android.view.View[3]"
-    //   );
-  
-    //   time.waitForDisplayed({
-    //     timeout: 500000,
-    //   });
-      
-    // });
+    // Subtest 9
   
     it("should take screenshot", () => {
       driver.saveScreenshot("./photos/screenshot.png")
