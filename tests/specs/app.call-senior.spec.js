@@ -42,9 +42,9 @@ describe("Video Calling Senior Test", () => {
         const endCallButton = $(
             "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.app.Dialog/android.view.View/android.view.View[3]/android.view.View/android.widget.Button"
             );
-            endCallButton.waitForDisplayed({ timeout:5000 });
+            // endCallButton.waitForDisplayed({ timeout:5000 });
             endCallButton.click();
-            driver.pause(2000);
+            driver.pause(5000);
         });
     
     it("should assert end call text", () => {
