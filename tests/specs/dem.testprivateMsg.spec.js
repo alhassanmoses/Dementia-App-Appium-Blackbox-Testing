@@ -35,7 +35,7 @@ it("should click family member button", () => {
     );
     messageTextfield.waitForDisplayed({ timeout: 20000 });
     messageTextfield.click();
-    return messageTextfield.setValue("last messages for testing assert");
+    return messageTextfield.setValue("final test!");
   });
 
 

@@ -1,4 +1,4 @@
-describe("Sending an Image", () => {
+describe("Sending an Image to a private member", () => {
     //SubTest1
     it("should click message button", () => {
       const messageGroupBtn = $(
@@ -42,14 +42,12 @@ describe("Sending an Image", () => {
 
 
   //SubTest4
-   it("should select image",()=>{
+   it("should select camera icon",()=>{
      const ImageBtn = $(
-    "//android.widget.ImageView[@content-desc='Shutter']"
-     );
-
-     return ImageBtn.click();
-
-       });
+    "//android.widget.ImageView[@content-desc='Shutter']")
+    return ImageBtn.click(); 
+     
+    });
 
 
 

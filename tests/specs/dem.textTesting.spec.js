@@ -28,7 +28,7 @@ it("should click familygroup button", () => {
     );
     messageTextfield.waitForDisplayed({ timeout: 20000 });
     messageTextfield.click();
-    return messageTextfield.setValue("this is a new test message from the seniors app");
+    return messageTextfield.setValue("this is the final test");
   });
 
   //SubTest4
