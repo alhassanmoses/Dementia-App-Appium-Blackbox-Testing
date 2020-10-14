@@ -4,7 +4,41 @@ const { config } = require("./wdio.shared.conf");
 // ============
 // Specs
 // ============
-config.specs = ["./tests/specs/**/app*.spec.js"];
+
+//Tells which files to loops through during testing
+const config_string_for_dementia = "./tests/specs/**/dem*.spec.js";
+const config_string_for_family = "./tests/specs/**/fam*.spec.js";
+const deafult_config_string = "./tests/specs/**/app*.spec.js";
+
+//scrip to know which test to run /--------------"default" , "seniors" or "family"--------------/
+//change the value of "app_tested" to test respective apps
+let app_tested = "default";
+var appPackageText = "com.media4care.dementia";
+switch(app_tested){
+  //Default
+  case "default":
+
+    appPackageText = "com.media4care.dementia";
+config.specs = [`${deafult_config_string}`];
+
+  break;
+
+  //Seniors App
+  case "seniors":
+    appPackageText = "com.media4care.dementia"
+config.specs = [`${config_string_for_dementia}`];
+
+  break;
+
+  //Family App
+  case "family":
+    appPackageText = "com.media4care.family"
+config.specs = [`${config_string_for_family}`];
+
+  break;
+    
+}
+// config.specs = ["./tests/specs/**/app*.spec.js"];
 
 // ============
 // Capabilities
@@ -28,9 +62,7 @@ config.capabilities = [
     // The path to the app
     // "appium:app": join(process.cwd(), "./apps/Android-NativeDemoApp-0.2.1.apk"),
     
-    //    uncomment next line to test seniors app
-       "appium:appPackage": "com.media4care.dementia",
-    // "appium:appPackage": "com.media4care.family",
+       "appium:appPackage": appPackageText,
     "appium:appActivity": "com.media4care.common.MainActivity",
     "appium:fullReset": false,
     // Read the reset strategies very well, they differ per platform, see
