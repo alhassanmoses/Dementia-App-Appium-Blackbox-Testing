@@ -11,6 +11,9 @@ exports.config = {
     defaultTimeoutInterval: 90000,
     helpers: [require.resolve("@babel/register")],
   },
+  beforeSession() {
+    require('expect-webdriverio')
+  },
   sync: true,
   logLevel: "silent",
   deprecationWarnings: true,
